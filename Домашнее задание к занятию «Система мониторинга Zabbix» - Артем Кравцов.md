@@ -30,15 +30,23 @@ systemctl enable zabbix-server zabbix-agent apache2
 ### Задание 2
 Установите Zabbix Agent на два хоста.
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
 ```
+Агент
 
+sudo apt update
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian12_all.deb
+sudo dpkg -i zabbix-release_latest_7.0+debian12_all.deb
+sudo apt update
+apt install zabbix-agent
+
+*магия с файлом конфигураций*
+
+systemctl restart zabbix-agent 
+systemctl enable zabbix-agent
 ```
+![Screenshot_20241210_013540](https://github.com/user-attachments/assets/c4c9a11e-dbe0-49c3-aa46-6d816cf9b22b)
+![Screenshot_20241210_014030](https://github.com/user-attachments/assets/22aae791-04dd-438e-8ff9-bc2239b0afdd)
+![Screenshot_20241210_014239](https://github.com/user-attachments/assets/66465e43-6a2a-42b9-9762-8a567d08e404)
+
+
+
