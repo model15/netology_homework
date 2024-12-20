@@ -8,6 +8,10 @@
 ### Решение
 https://github.com/model15/netology_homework/blob/b4d3c5cfe0234b695fcbaf3e6a0f1bd94d1fbc6d/1/hsrp_advanced.pkt
 
+![Снимок экрана_20241219_150419](https://github.com/user-attachments/assets/10304757-32c6-421e-a2c6-605b896ec8ab)
+![Снимок экрана_20241219_150606](https://github.com/user-attachments/assets/5617d041-de27-4bc1-9de8-d43e07aea537)
+![Снимок экрана_20241219_151601](https://github.com/user-attachments/assets/5f4a49ff-7a5f-4ac7-aad5-c7f4a6d6e475)
+
 
 
 ------
