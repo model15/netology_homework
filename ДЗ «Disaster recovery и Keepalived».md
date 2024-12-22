@@ -24,14 +24,81 @@ https://github.com/model15/netology_homework/blob/b4d3c5cfe0234b695fcbaf3e6a0f1b
 - Настройте Keepalived так, чтобы он запускал данный скрипт каждые 3 секунды и переносил виртуальный IP на другой сервер, если bash-скрипт завершался с кодом, отличным от нуля (то есть порт веб-сервера был недоступен или отсутствовал index.html). Используйте для этого секцию vrrp_script
 - На проверку отправьте получившейся bash-скрипт и конфигурационный файл keepalived, а также скриншот с демонстрацией переезда плавающего ip на другой сервер в случае недоступности порта или файла index.html
 
+http_check.sh
+```
+#! /bin/bash
 
-------
+IP="localhost:80"
+HTTP_CODE=$(curl -LI "$IP" -o /dev/null -w '%{http_code}\n' -s)
+
+if [[ $HTTP_CODE -eq 200 ]]; then
+    exit 0
+else
+    exit 1
+fi
+
+```
+keepalived.conf - master
+```
+global_defs {
+enable_script_security
+script_user model
+}
+
+vrrp_script http_check {
+    script "/etc/keepalived/http_check.sh"
+    interval 3
+}
 
 
-### *Задание 3
-- Изучите дополнительно возможность Keepalived, которая называется vrrp_track_file
-- Напишите bash-скрипт, который будет менять приоритет внутри файла в зависимости от нагрузки на виртуальную машину (можно разместить данный скрипт в cron и запускать каждую минуту). Рассчитывать приоритет можно, например, на основании Load average.
-- Настройте Keepalived на отслеживание данного файла.
-- Нагрузите одну из виртуальных машин, которая находится в состоянии MASTER и имеет активный виртуальный IP и проверьте, чтобы через некоторое время она перешла в состояние SLAVE из-за высокой нагрузки и виртуальный IP переехал на другой, менее нагруженный сервер.
-- Попробуйте выполнить настройку keepalived на третьем сервере и скорректировать при необходимости формулу так, чтобы плавающий ip адрес всегда был прикреплен к серверу, имеющему наименьшую нагрузку.
-- На проверку отправьте получившийся bash-скрипт и конфигурационный файл keepalived, а также скриншоты логов keepalived с серверов при разных нагрузках
+vrrp_instance VI_1 {
+        state MASTER
+        interface enp0s3
+        virtual_router_id 100
+        priority 95
+        advert_int 1
+
+
+        virtual_ipaddress {
+              192.168.1.100/24
+        }
+
+        track_script {
+            http_check
+        }
+}        
+
+```
+keepalived.conf - backup
+```
+global_defs {
+enable_script_security
+script_user model
+}
+
+vrrp_script http_check {
+    script "/etc/keepalived/http_check.sh"
+    interval 3
+}
+
+
+vrrp_instance VI_1 {
+        state BACKUP
+        interface enp0s3
+        virtual_router_id 100
+        priority 90
+        advert_int 1
+
+
+        virtual_ipaddress {
+              192.168.1.100/24
+        }
+
+        track_script {
+            http_check
+        }
+}     
+```
+![Screenshot_20241222_123627](https://github.com/user-attachments/assets/6a12fd84-ecef-4e1c-bd0c-8e5770f577a7)
+
+![Screenshot_20241222_123734](https://github.com/user-attachments/assets/8d1e0724-c606-4548-bed4-fbae1c158e8c)
