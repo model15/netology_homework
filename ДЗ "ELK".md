@@ -37,3 +37,5 @@
 *Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.*
 
 ### Решение 
+![image](https://github.com/user-attachments/assets/c948f36d-e57d-402f-8ddd-a9441042cff3)
+
