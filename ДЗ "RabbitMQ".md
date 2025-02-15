@@ -71,7 +71,11 @@ $ rabbitmqadmin get queue='hello'
 *Приложите скриншот результата работы второго скрипта.*
 ### Решение
 ![image](https://github.com/user-attachments/assets/ec7b41f7-e099-4bd3-9601-535504cdedb1)
-![image](https://github.com/user-attachments/assets/134f899b-81ca-4798-87e7-861b18b8beae)
+![image](https://github.com/user-attachments/assets/134f899b-81ca-4798-87e7-861b18b8beae) 
+![image](https://github.com/user-attachments/assets/66c77e37-435c-41a4-b704-c8320a4d7973)
+![image](https://github.com/user-attachments/assets/6b893d78-8209-42f5-89f0-7000b6ba2607)
+
+
 
 
 
