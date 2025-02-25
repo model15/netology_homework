@@ -24,6 +24,12 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 
 ### Решение
+![Screenshot_20250226_021819](https://github.com/user-attachments/assets/83c309a1-a4c4-4c77-bfbf-c38af9c2e68c)
+![image](https://github.com/user-attachments/assets/f6c3f79c-91f3-4474-ab7d-6974c7626160)
+
+
+
+![image](https://github.com/user-attachments/assets/bf3fbb1e-e084-4a0d-b776-9d6be9f527c3)
 
 
 ### Задание 2
