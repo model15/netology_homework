@@ -62,12 +62,23 @@ customer         | customer_id
 ```
 ### Решение
 
-
-
-### Задание 3*
-3.1. Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.
-
-3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
-
-*Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
-### Решение
+Таблица      |Название первичного ключа|
+-------------+-------------------------+
+actor        |actor_id                 |
+address      |address_id               |
+category     |category_id              |
+city         |city_id                  |
+country      |country_id               |
+customer     |customer_id              |
+film         |film_id                  |
+film_actor   |actor_id                 |
+film_actor   |film_id                  |
+film_category|category_id              |
+film_category|film_id                  |
+film_text    |film_id                  |
+inventory    |inventory_id             |
+language     |language_id              |
+payment      |payment_id               |
+rental       |rental_id                |
+staff        |staff_id                 |
+store        |store_id                 |
