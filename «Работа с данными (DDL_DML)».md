@@ -61,7 +61,7 @@ SELECT CURRENT_USER();
 customer         | customer_id
 ```
 ### Решение
-
+```
 Таблица      |Название первичного ключа|
 -------------+-------------------------+
 actor        |actor_id                 |
@@ -82,3 +82,4 @@ payment      |payment_id               |
 rental       |rental_id                |
 staff        |staff_id                 |
 store        |store_id                 |
+```
