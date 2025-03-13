@@ -1,9 +1,18 @@
 ### Задание 1
 Одним запросом получите информацию о магазине, в котором обслуживается более 300 покупателей, и выведите в результат следующую информацию: 
-- фамилия и имя сотрудника из этого магазина;
+- фамилия и имя сотрудника из этого магазина;c
 - город нахождения магазина;
 - количество пользователей, закреплённых в этом магазине.
 ### Решение
+
+select Concat_ws(' ', staff.first_name, staff.last_name) AS staff, city.city, count(customer.customer_id) customers ,store.store_id
+from store
+left join staff ON store.store_id = staff.store_id
+left join address ON  store.address_id = address.address_id
+left join city ON address.city_id = city.city_id
+right join customer ON store.store_id = customer.store_id
+group by store.store_id, staff.first_name, staff.last_name
+having customers > 300;
 
 ### Задание 2
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.
